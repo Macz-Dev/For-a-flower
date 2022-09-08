@@ -1,0 +1,551 @@
+fileFormatVersion: 2
+guid: 31148e1c10bfa4843a2b6ad34ad71f22
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: WalkingSlow
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Pecho' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'ClaviculaDe' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'ClaviculaIz'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: WalkingSlow
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 98
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Base
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CinturaIz
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CinturaDe
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MusloIz
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: MusloDe
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EspinillaIz
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: EspinillaDe
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Abdomen
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cuello
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Cabeza1
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: HombroIz
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: HombroDe
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BrazoIz
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: BrazoDe
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AnteBrazoIz
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: AntebrazoDe
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: PalmaIz
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: PalmaDe
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: PlantaIz
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: PlantaDe
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Frente
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Mix@WalkingSlow(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Base
+      parentName: Mix@WalkingSlow(Clone)
+      position: {x: 0.07088732, y: 4.239811, z: 0.9184678}
+      rotation: {x: -0.6852095, y: 0.6899534, z: -0.08828054, w: -0.21600641}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Abdomen
+      parentName: Base
+      position: {x: -2.191784, y: 0.0000001935043, z: 0}
+      rotation: {x: 0.021643555, y: -0.07015703, z: -0.0059210374, w: 0.9972836}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pecho
+      parentName: Abdomen
+      position: {x: -3.6604, y: -0.0000001665351, z: 0}
+      rotation: {x: 0.044797953, y: -0.13980484, z: -0.006342162, w: 0.98914486}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ClaviculaDe
+      parentName: Pecho
+      position: {x: -3.358103, y: -0.00000053734146, z: 0}
+      rotation: {x: 0.031768244, y: -0.04354729, z: 0.6752031, w: 0.7356597}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HombroDe
+      parentName: ClaviculaDe
+      position: {x: -4.113694, y: -0.000057167057, z: 0.0000009689331}
+      rotation: {x: 0.16317317, y: -0.043063328, z: 0.16873276, w: 0.9711073}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BrazoDe
+      parentName: HombroDe
+      position: {x: -1.6101074, y: 0.0001259613, z: 0}
+      rotation: {x: 0.024854342, y: 0.02630191, z: -0.12564722, w: 0.9914148}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AntebrazoDe
+      parentName: BrazoDe
+      position: {x: -4.211399, y: -0.00015599823, z: 0.0000019378663}
+      rotation: {x: 0.306732, y: 0.021347495, z: 0.009328692, w: 0.9515107}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PalmaDe
+      parentName: AntebrazoDe
+      position: {x: -5.7665386, y: 0.0000029067996, z: 0.0000009689331}
+      rotation: {x: -2.775557e-17, y: 6.518195e-17, z: -0.00000008742277, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ClaviculaIz
+      parentName: Pecho
+      position: {x: -3.358103, y: -0.00000053734146, z: 0}
+      rotation: {x: -0.0047864555, y: -0.013739502, z: -0.66269976, w: 0.74874395}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HombroIz
+      parentName: ClaviculaIz
+      position: {x: -4.1049385, y: 0.0000019378663, z: 0}
+      rotation: {x: -0.11848022, y: -0.016786793, z: -0.18343547, w: 0.9757213}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BrazoIz
+      parentName: HombroIz
+      position: {x: -1.6246629, y: 0, z: 0.0000009689331}
+      rotation: {x: -0.026050644, y: 0.017134745, z: 0.12517835, w: 0.9916442}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AnteBrazoIz
+      parentName: BrazoIz
+      position: {x: -4.205623, y: 0, z: 0}
+      rotation: {x: 0.07426573, y: 0.011798636, z: -0.015603612, w: 0.99704665}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PalmaIz
+      parentName: AnteBrazoIz
+      position: {x: -5.7687964, y: 0, z: -0.0000009689331}
+      rotation: {x: -3.5527137e-15, y: 6.3403364e-15, z: 2.25254e-29, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cuello
+      parentName: Pecho
+      position: {x: -3.3582215, y: -0.000000083267686, z: 0}
+      rotation: {x: -0.017087823, y: 0.066208825, z: -0.01652845, w: 0.99752253}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cabeza1
+      parentName: Cuello
+      position: {x: -2.8894584, y: 0.00000012111711, z: 0}
+      rotation: {x: -0.017087707, y: 0.0662086, z: -0.01652859, w: 0.9975226}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Frente
+      parentName: Cabeza1
+      position: {x: -4.791071, y: -0.0000009689328, z: 0.0000009689331}
+      rotation: {x: 7.105445e-15, y: -6.6174615e-24, z: -9.313226e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CinturaIz
+      parentName: Base
+      position: {x: -2.191784, y: 0.0000011409301, z: 0.0000009689331}
+      rotation: {x: 0.19088703, y: 0.17491578, z: -0.9565385, w: 0.13416661}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MusloIz
+      parentName: CinturaIz
+      position: {x: -2.8057368, y: 0, z: 0}
+      rotation: {x: -0.23620644, y: 0.054624867, z: -0.15741944, w: 0.95730966}
+      scale: {x: 1, y: 1, z: 1}
+    - name: EspinillaIz
+      parentName: MusloIz
+      position: {x: -1.7688476, y: 0.0000024223327, z: 0}
+      rotation: {x: 0.98746073, y: 0.009319769, z: 0.13777593, w: -0.07650028}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlantaIz
+      parentName: EspinillaIz
+      position: {x: -1.6458492, y: -0.00003027916, z: 0}
+      rotation: {x: -0.34914315, y: 0.6196558, z: -0.5937663, w: -0.37625444}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone004
+      parentName: PlantaIz
+      position: {x: -1.7092135, y: -0.00000024223328, z: -0.00000024223328}
+      rotation: {x: 1.2393714e-22, y: 1.4176757e-15, z: -0.00000008742278, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CinturaDe
+      parentName: Base
+      position: {x: -2.191784, y: 0.0000011409301, z: 0.0000009689331}
+      rotation: {x: -0.17325357, y: 0.15875769, z: 0.95582557, w: 0.1765694}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MusloDe
+      parentName: CinturaDe
+      position: {x: -2.8064296, y: 0.00000048446657, z: 0}
+      rotation: {x: 0.12297649, y: 0.070246324, z: 0.16891234, w: 0.97540295}
+      scale: {x: 1, y: 1, z: 1}
+    - name: EspinillaDe
+      parentName: MusloDe
+      position: {x: -1.7583524, y: -0.00000024223328, z: 0}
+      rotation: {x: 0.82364357, y: -0.016377887, z: 0.08571072, w: 0.56035423}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PlantaDe
+      parentName: EspinillaDe
+      position: {x: -1.625245, y: -0.000023496628, z: 0}
+      rotation: {x: 0.23818177, y: 0.662891, z: 0.63010967, w: -0.32681337}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: PlantaDe
+      position: {x: -1.7071633, y: 0.0000009083748, z: 0.0000133228305}
+      rotation: {x: 0, y: -2.9843852e-13, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder001
+      parentName: Mix@WalkingSlow(Clone)
+      position: {x: 5.08, y: 11.936196, z: 15.24}
+      rotation: {x: 0.000000015454312, y: 0.7071067, z: -0.000000015454308, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder002
+      parentName: Mix@WalkingSlow(Clone)
+      position: {x: -5.08, y: 11.936196, z: 15.24}
+      rotation: {x: 0.000000015454312, y: -0.7071068, z: 0.000000015454312, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder003
+      parentName: Mix@WalkingSlow(Clone)
+      position: {x: -0, y: 11.936196, z: 15.24}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cylinder004
+      parentName: Mix@WalkingSlow(Clone)
+      position: {x: -0, y: 11.936196, z: 15.24}
+      rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Gelem
+      parentName: Mix@WalkingSlow(Clone)
+      position: {x: -0.30548415, y: 11.020287, z: 17.919106}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.70141, y: 0.70141, z: 0.70141}
+    - name: Brazo Der
+      parentName: Gelem
+      position: {x: 20.35255, y: 3.8196003, z: 1.1879973}
+      rotation: {x: -0, y: 0, z: 1, w: -0.00000087817637}
+      scale: {x: 0.592795, y: 0.592795, z: 0.592795}
+    - name: Cone009
+      parentName: Brazo Der
+      position: {x: -6.225659, y: 0, z: -0.07311182}
+      rotation: {x: -4.2874965e-14, y: 0.7019597, z: 4.350145e-14, w: 0.71221673}
+      scale: {x: 0.501251, y: 0.501251, z: 0.945135}
+    - name: Cone010
+      parentName: Brazo Der
+      position: {x: -6.1874866, y: -0.0069608158, z: 2.959926}
+      rotation: {x: 0.7071068, y: 0.000000011238311, z: -0.7071067, w: 0.0000000112383125}
+      scale: {x: 0.148965, y: 0.148965, z: 0.280881}
+    - name: Cone011
+      parentName: Brazo Der
+      position: {x: -6.187491, y: -2.485166, z: -1.4885331}
+      rotation: {x: -0.4545194, y: -0.54167527, z: 0.45451942, w: 0.54167527}
+      scale: {x: 0.148965, y: 0.148965, z: 0.280881}
+    - name: Cone012
+      parentName: Brazo Der
+      position: {x: -6.1874824, y: 2.5817494, z: -1.5322747}
+      rotation: {x: 0.4999999, y: -0.5, z: -0.4999999, w: 0.5000002}
+      scale: {x: 0.148965, y: 0.148965, z: 0.280881}
+    - name: Brazo Izq
+      parentName: Gelem
+      position: {x: -19.481499, y: 3.8196003, z: 1.3058156}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.592795, y: 0.592795, z: 0.592795}
+    - name: Cone005
+      parentName: Brazo Izq
+      position: {x: -6.225659, y: 0, z: -0.07311182}
+      rotation: {x: 0, y: 0.7019597, z: -0, w: 0.71221673}
+      scale: {x: 0.501251, y: 0.501251, z: 0.945135}
+    - name: Cone006
+      parentName: Brazo Izq
+      position: {x: -6.1874948, y: -0.0069608158, z: 2.959926}
+      rotation: {x: 0.7071068, y: 0.000000011238228, z: -0.7071067, w: 0.00000001123823}
+      scale: {x: 0.148965, y: 0.148965, z: 0.280881}
+    - name: Cone007
+      parentName: Brazo Izq
+      position: {x: -6.1874948, y: -2.485166, z: -1.4885353}
+      rotation: {x: -0.4545194, y: -0.54167527, z: 0.45451942, w: 0.54167527}
+      scale: {x: 0.148965, y: 0.148965, z: 0.280881}
+    - name: Cone008
+      parentName: Brazo Izq
+      position: {x: -6.1874948, y: 2.5817456, z: -1.5322747}
+      rotation: {x: 0.4999999, y: -0.5, z: -0.4999999, w: 0.5000002}
+      scale: {x: 0.148965, y: 0.148965, z: 0.280881}
+    - name: Cabeza
+      parentName: Gelem
+      position: {x: 0.4355286, y: 3.0953457, z: 8.548369}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cuerpo
+      parentName: Gelem
+      position: {x: 0.4355286, y: 3.8196003, z: -3.7639756}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.048375, y: 1.048375, z: 1.048375}
+    - name: Hombro Der
+      parentName: Gelem
+      position: {x: 8.402337, y: 3.8196003, z: 1.8490074}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
+      scale: {x: 1.58205, y: 0.996771, z: 1.312801}
+    - name: Hombro Izq
+      parentName: Gelem
+      position: {x: -7.531281, y: 3.8196003, z: 1.8490074}
+      rotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1.58205, y: 0.996771, z: 1.312801}
+    - name: Pierna Der
+      parentName: Gelem
+      position: {x: 4.4189334, y: 3.8196003, z: -15.714188}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pierna Izq
+      parentName: Gelem
+      position: {x: -3.5478761, y: 3.8196003, z: -15.714188}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 10
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
