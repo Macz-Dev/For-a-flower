@@ -6,11 +6,11 @@ public class InstructionsExecutor : MonoBehaviour
 {
     public string[] instructions;
     private int indexOfInstructionToExecute;
-    [SerializeField] Gelem gelem;
+    public Gelem gelem;
 
     void Start()
     {
-        this.instructions = new string[] { "MF", "TL", "MF", "MF", "MF", "TL", "TL", "MF", "TR", "MF" };
+        this.instructions = new string[] { "DM", "MF", "NA", "EM", "MF", "TL", "MF", "TR", "MF", "DM", "EM" };
         LevelManager.Instance.NextTick += Execute;
         LevelManager.Instance.ResetLevel += ResetInitialValues;
 
@@ -25,11 +25,16 @@ public class InstructionsExecutor : MonoBehaviour
         if (HasInstructionsToExecute())
         {
             string instructionToExecute = this.instructions[this.indexOfInstructionToExecute];
-            Debug.Log(instructionToExecute);
             switch (instructionToExecute)
             {
                 case "MF": // Move forward
                     this.gelem.MoveForward();
+                    break;
+                case "EM": // Move forward
+                    this.gelem.ElevateMikeas();
+                    break;
+                case "DM": // Move forward
+                    this.gelem.DownMikeas();
                     break;
                 case "TL": // Turn left
                     this.gelem.turningDirection = TurningDirection.LEFT;
@@ -38,6 +43,9 @@ public class InstructionsExecutor : MonoBehaviour
                 case "TR": // Turn right
                     this.gelem.turningDirection = TurningDirection.RIGHT;
                     this.gelem.Turn();
+                    break;
+                case "NA": // Do Nothing
+                    this.gelem.NoAction();
                     break;
                 default:
 

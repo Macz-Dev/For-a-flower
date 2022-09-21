@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public int level;
+    public string level;
     public int optimumsPieces;
     public int parchmentPiecesRequired;
     private int usedPieces;
+    public bool isPlayable;
     public State currentState;
     public Button button;
     private RectTransform frameRectTransform;
@@ -27,13 +28,40 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         frameRectTransform = GetComponent<RectTransform>();
         CleanPanelStates();
+        SetDataLevel();
+        SetState();
         PrepareRenderByState();
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetDataLevel()
     {
+        this.isPlayable = GameData.Levels.ContainsKey(level) ? true : false;
+        if (isPlayable)
+        {
+            this.optimumsPieces = GameData.Levels[level].optimumsPieces;
+            this.parchmentPiecesRequired = GameData.Levels[level].parchmentPiecesRequired;
+        }
+        else
+        {
+            currentState = State.LOCKED;
+        }
+    }
 
+    void SetState()
+    {
+        if (!isPlayable) return;
+        if (PlayerData.levelsStats.ContainsKey(level))
+        {
+            this.currentState = State.COMPLETED;
+        }
+        else if (PlayerData.parchmentsQuantity >= this.parchmentPiecesRequired)
+        {
+            this.currentState = State.UNLOCKED;
+        }
+        else
+        {
+            this.currentState = State.LOCKED;
+        }
     }
 
     void PrepareRenderByState()
@@ -41,7 +69,7 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         switch (currentState)
         {
             case State.LOCKED:
-                parchmentPiecesRequiredText.text = parchmentPiecesRequired.ToString();
+                parchmentPiecesRequiredText.text = this.isPlayable ? parchmentPiecesRequired.ToString() : "N/A";
                 button.interactable = false;
                 lockedPanel.SetActive(true);
                 break;

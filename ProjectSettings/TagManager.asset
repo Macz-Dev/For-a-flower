@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Hole
+  - ExitPoint
+  - Fire
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ using System;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
-    private InstructionsExecutor instructionsExecutor;
+    public InstructionsExecutor instructionsExecutor;
 
     public event EventHandler NextTick;
     public event EventHandler ResetLevel;

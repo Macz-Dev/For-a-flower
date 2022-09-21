@@ -20,16 +20,13 @@ ModelImporter:
     removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'EspinillaDe'
-      : rotation error = 66.887337 deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
       to improve retargeting quality.\n\t'Pecho' is inbetween humanoid transforms
       and has rotation animation that will be discarded.\n\t'ClaviculaDe' is inbetween
       humanoid transforms and has rotation animation that will be discarded.\n\t'ClaviculaIz'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'EspinillaDe'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
@@ -128,7 +125,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: CinturaDe
+    - boneName: CinturaIz
       humanName: LeftUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -136,7 +133,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: CinturaIz
+    - boneName: CinturaDe
       humanName: RightUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -144,7 +141,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: MusloDe
+    - boneName: MusloIz
       humanName: LeftLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -152,7 +149,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: MusloIz
+    - boneName: MusloDe
       humanName: RightLowerLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -160,7 +157,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: PlantaDe
+    - boneName: EspinillaIz
       humanName: LeftFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -168,7 +165,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: EspinillaIz
+    - boneName: EspinillaDe
       humanName: RightFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -264,14 +261,6 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: PlantaIz
-      humanName: RightToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
     - boneName: Frente
       humanName: RightEye
       limit:
@@ -288,242 +277,242 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Base
       parentName: Gelem@Idle(Clone)
-      position: {x: 0.0001753685, y: 0.094533324, z: 0.011301408}
+      position: {x: 0.006904272, y: 3.7217844, z: 0.44493732}
       rotation: {x: 0.7091408, y: -0.69663644, z: 0.047428913, w: 0.097814426}
       scale: {x: 1, y: 1, z: 1}
     - name: Abdomen
       parentName: Base
-      position: {x: -0.055671304, y: 0.000000004915009, z: 0}
+      position: {x: -2.1917837, y: 0.00000019350429, z: 0}
       rotation: {x: 0.035627984, y: -0.10270248, z: 0.008841723, w: 0.9940346}
       scale: {x: 1.0000004, y: 1.0000005, z: 1.0000011}
     - name: Pecho
       parentName: Abdomen
-      position: {x: -0.09297415, y: -0.000000004229991, z: 0}
+      position: {x: -3.6603997, y: -0.00000016653509, z: 0}
       rotation: {x: -1.0658141e-14, y: 0.000000024931497, z: 0.00000017881393, w: 1}
       scale: {x: 1.0000025, y: 1.0000025, z: 1.0000048}
     - name: ClaviculaDe
       parentName: Pecho
-      position: {x: -0.08529582, y: -0.000000013648471, z: 0}
+      position: {x: -3.358103, y: -0.00000053734135, z: 0}
       rotation: {x: -0.027301848, y: -0.025173008, z: 0.6867369, w: 0.7259569}
       scale: {x: 1, y: 1, z: 1}
     - name: HombroDe
       parentName: ClaviculaDe
-      position: {x: -0.10448783, y: -0.0000014520431, z: 0.0000000246109}
+      position: {x: -4.113694, y: -0.00005716705, z: 0.000000968933}
       rotation: {x: -0.037105355, y: 0.0015051716, z: -0.02773282, w: -0.9989253}
       scale: {x: 1.0000031, y: 1.0000005, z: 1.000003}
     - name: BrazoDe
       parentName: HombroDe
-      position: {x: -0.040896725, y: 0.000003199417, z: 0}
+      position: {x: -1.6101073, y: 0.0001259613, z: 0}
       rotation: {x: 0.000000004583285, y: -0, z: -0.0000000022916424, w: 1}
       scale: {x: 1, y: 0.99999994, z: 0.99999946}
     - name: AntebrazoDe
       parentName: BrazoDe
-      position: {x: -0.106969535, y: -0.000003962355, z: 0.0000000492218}
+      position: {x: -4.211399, y: -0.00015599823, z: 0.000001937866}
       rotation: {x: -0.000000056737335, y: -0.00000013422684, z: 0.00000006180896,
         w: 1}
       scale: {x: 1.0000011, y: 1.0000001, z: 1.0000012}
     - name: PalmaDe
       parentName: AntebrazoDe
-      position: {x: -0.14647007, y: 0.0000000738327, z: 0.0000000246109}
+      position: {x: -5.766538, y: 0.0000029067994, z: 0.000000968933}
       rotation: {x: -0.000000007450593, y: 0.00000003678724, z: -0.00000012259258,
         w: 1}
       scale: {x: 1.0000033, y: 0.99999994, z: 1.0000035}
     - name: ClaviculaIz
       parentName: Pecho
-      position: {x: -0.08529582, y: -0.000000013648471, z: 0}
+      position: {x: -3.358103, y: -0.00000053734135, z: 0}
       rotation: {x: 0.04505966, y: -0.019980252, z: -0.7004965, w: 0.7119516}
       scale: {x: 1, y: 1, z: 1}
     - name: HombroIz
       parentName: ClaviculaIz
-      position: {x: -0.10426543, y: 0.0000000492218, z: 0}
+      position: {x: -4.104938, y: 0.000001937866, z: 0}
       rotation: {x: -0.045990176, y: -0.017733831, z: -0.008099793, w: 0.99875164}
       scale: {x: 1.0000004, y: 1.0000027, z: 1.000003}
     - name: BrazoIz
       parentName: HombroIz
-      position: {x: -0.041266438, y: 0, z: 0.0000000246109}
+      position: {x: -1.6246629, y: 0, z: 0.000000968933}
       rotation: {x: -0.000000004583283, y: 0.000000009166574, z: -2.8651925e-10, w: 1}
       scale: {x: 1.0000004, y: 1.0000001, z: 1}
     - name: AnteBrazoIz
       parentName: BrazoIz
-      position: {x: -0.10682282, y: 0, z: 0}
+      position: {x: -4.2056227, y: 0, z: 0}
       rotation: {x: 0.00000006418792, y: -0.00000007808444, z: 0.00000009033376, w: 1}
       scale: {x: 1.0000001, y: 1.0000012, z: 1.000001}
     - name: PalmaIz
       parentName: AnteBrazoIz
-      position: {x: -0.14652742, y: 0, z: -0.0000000246109}
+      position: {x: -5.7687964, y: 0, z: -0.000000968933}
       rotation: {x: -0, y: -0, z: -2.0933485e-15, w: 1}
       scale: {x: 1.0000001, y: 1.0000033, z: 1.0000035}
     - name: Cuello
       parentName: Pecho
-      position: {x: -0.08529882, y: -0.000000002114999, z: 0}
+      position: {x: -3.3582213, y: -0.00000008326768, z: 0}
       rotation: {x: -0.0000000037252974, y: -0.00000002235174, z: -0.00000014784744,
         w: 1}
       scale: {x: 1, y: 1, z: 1.0000001}
     - name: Cabeza1
       parentName: Cuello
-      position: {x: -0.073392235, y: 0.0000000030763743, z: 0}
+      position: {x: -2.8894582, y: 0.0000001211171, z: 0}
       rotation: {x: 0.000000007450598, y: 0.000000034673143, z: 0.00000011664811,
         w: 1}
       scale: {x: 1.0000019, y: 1.000002, z: 1.000003}
     - name: Frente
       parentName: Cabeza1
-      position: {x: -0.1216932, y: -0.000000024610891, z: 0.0000000246109}
+      position: {x: -4.791071, y: -0.0000009689327, z: 0.000000968933}
       rotation: {x: -0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: CinturaIz
       parentName: Base
-      position: {x: -0.055671304, y: 0.000000028979624, z: 0.0000000246109}
+      position: {x: -2.1917837, y: 0.0000011409301, z: 0.000000968933}
       rotation: {x: 0.09978994, y: -0.04311732, z: -0.72690547, w: 0.6780792}
       scale: {x: 0.99999976, y: 1.0000002, z: 1.0000006}
     - name: MusloIz
       parentName: CinturaIz
-      position: {x: -0.07126571, y: 0, z: 0}
+      position: {x: -2.8057368, y: 0, z: 0}
       rotation: {x: -0.0000001804022, y: 0.00000015657368, z: -0.6755902, w: 0.7372773}
       scale: {x: 1.0000001, y: 1.000001, z: 1.0000012}
     - name: EspinillaIz
       parentName: MusloIz
-      position: {x: -0.04492873, y: 0.00000006152725, z: 0}
+      position: {x: -1.7688476, y: 0.0000024223327, z: 0}
       rotation: {x: 0.000000058809434, y: 0.00000001306878, z: -0, w: 1}
       scale: {x: 0.99999994, y: 1.0000001, z: 0.9999991}
     - name: PlantaIz
       parentName: EspinillaIz
-      position: {x: -0.04180457, y: -0.0000007690906, z: 0}
+      position: {x: -1.6458492, y: -0.000030279158, z: 0}
       rotation: {x: 0.4999988, y: -0.500001, z: 0.49999896, w: 0.50000113}
       scale: {x: 1.0000005, y: 1.0000011, z: 0.9999998}
     - name: Bone004
       parentName: PlantaIz
-      position: {x: -0.04341402, y: -0.000000006152725, z: -0.000000006152725}
+      position: {x: -1.7092134, y: -0.00000024223326, z: -0.00000024223326}
       rotation: {x: 1.2393714e-22, y: 1.4176757e-15, z: -0.00000008742278, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: CinturaDe
       parentName: Base
-      position: {x: -0.055671304, y: 0.000000028979624, z: 0.0000000246109}
+      position: {x: -2.1917837, y: 0.0000011409301, z: 0.000000968933}
       rotation: {x: 0.051650256, y: 0.095652536, z: -0.7388528, w: -0.66504097}
       scale: {x: 1.0000002, y: 1.0000002, z: 1.0000004}
     - name: MusloDe
       parentName: CinturaDe
-      position: {x: -0.07128331, y: 0.00000001230545, z: 0}
+      position: {x: -2.8064296, y: 0.0000004844665, z: 0}
       rotation: {x: 0.00000013943644, y: 0.00000011263181, z: 0.67559034, w: 0.7372773}
       scale: {x: 0.9999998, y: 0.99999946, z: 1.0000004}
     - name: EspinillaDe
       parentName: MusloDe
-      position: {x: -0.04466215, y: -0.000000006152725, z: 0}
+      position: {x: -1.7583524, y: -0.00000024223326, z: 0}
       rotation: {x: -0.000000019603156, y: 0.00000005227506, z: -0.00000005960465,
         w: 1}
       scale: {x: 0.99999976, y: 1, z: 1.0000001}
     - name: PlantaDe
       parentName: EspinillaDe
-      position: {x: -0.041281223, y: -0.00000059681435, z: 0}
+      position: {x: -1.625245, y: -0.000023496628, z: 0}
       rotation: {x: -0.5000001, y: -0.5000002, z: -0.49999988, w: 0.4999999}
       scale: {x: 0.9999998, y: 0.9999999, z: 1.0000005}
     - name: Bone002
       parentName: PlantaDe
-      position: {x: -0.04336194, y: 0.000000023072719, z: 0.0000003383999}
+      position: {x: -1.707163, y: 0.0000009083748, z: 0.0000133228305}
       rotation: {x: 0, y: -2.9843852e-13, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Cylinder001
       parentName: Gelem@Idle(Clone)
-      position: {x: 0.129032, y: 0.30317938, z: 0.387096}
+      position: {x: 5.08, y: 11.936196, z: 15.24}
       rotation: {x: 0.000000015454312, y: 0.7071067, z: -0.000000015454308, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Cylinder002
       parentName: Gelem@Idle(Clone)
-      position: {x: -0.129032, y: 0.30317938, z: 0.387096}
+      position: {x: -5.08, y: 11.936196, z: 15.24}
       rotation: {x: 0.000000015454312, y: -0.7071068, z: 0.000000015454312, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
     - name: Cylinder003
       parentName: Gelem@Idle(Clone)
-      position: {x: -0, y: 0.30317938, z: 0.387096}
+      position: {x: -0, y: 11.936196, z: 15.24}
       rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
       scale: {x: 1, y: 1, z: 1}
     - name: Cylinder004
       parentName: Gelem@Idle(Clone)
-      position: {x: -0, y: 0.30317938, z: 0.387096}
+      position: {x: -0, y: 11.936196, z: 15.24}
       rotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
       scale: {x: 1, y: 1, z: 1}
     - name: Gelem
       parentName: Gelem@Idle(Clone)
-      position: {x: -0.0077592973, y: 0.27991527, z: 0.45514527}
+      position: {x: -0.30548415, y: 11.020287, z: 17.919106}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 0.70141, y: 0.70141, z: 0.70141}
     - name: Brazo Der
       parentName: Gelem
-      position: {x: 0.5169547, y: 0.09701784, z: 0.030175129}
+      position: {x: 20.352549, y: 3.8196, z: 1.1879972}
       rotation: {x: -0, y: 0, z: 1, w: -0.00000087817637}
       scale: {x: 0.592795, y: 0.592795, z: 0.592795}
     - name: Cone009
       parentName: Brazo Der
-      position: {x: -0.15813172, y: 0, z: -0.00185704}
+      position: {x: -6.2256584, y: 0, z: -0.07311181}
       rotation: {x: -4.2874965e-14, y: 0.7019597, z: 4.350145e-14, w: 0.71221673}
       scale: {x: 0.501251, y: 0.501251, z: 0.945135}
     - name: Cone010
       parentName: Brazo Der
-      position: {x: -0.15716216, y: -0.00017680472, z: 0.07518211}
+      position: {x: -6.1874866, y: -0.0069608158, z: 2.9599257}
       rotation: {x: 0.7071068, y: 0.000000011238311, z: -0.7071067, w: 0.0000000112383125}
       scale: {x: 0.148965, y: 0.148965, z: 0.280881}
     - name: Cone011
       parentName: Brazo Der
-      position: {x: -0.15716225, y: -0.06312322, z: -0.037808742}
+      position: {x: -6.18749, y: -2.485166, z: -1.4885331}
       rotation: {x: -0.4545194, y: -0.54167527, z: 0.45451942, w: 0.54167527}
       scale: {x: 0.148965, y: 0.148965, z: 0.280881}
     - name: Cone012
       parentName: Brazo Der
-      position: {x: -0.15716204, y: 0.06557643, z: -0.038919777}
+      position: {x: -6.187482, y: 2.5817492, z: -1.5322747}
       rotation: {x: 0.4999999, y: -0.5, z: -0.4999999, w: 0.5000002}
       scale: {x: 0.148965, y: 0.148965, z: 0.280881}
     - name: Brazo Izq
       parentName: Gelem
-      position: {x: -0.49483, y: 0.09701784, z: 0.033167716}
+      position: {x: -19.481497, y: 3.8196, z: 1.3058156}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 0.592795, y: 0.592795, z: 0.592795}
     - name: Cone005
       parentName: Brazo Izq
-      position: {x: -0.15813172, y: 0, z: -0.00185704}
+      position: {x: -6.2256584, y: 0, z: -0.07311181}
       rotation: {x: 0, y: 0.7019597, z: -0, w: 0.71221673}
       scale: {x: 0.501251, y: 0.501251, z: 0.945135}
     - name: Cone006
       parentName: Brazo Izq
-      position: {x: -0.15716237, y: -0.00017680472, z: 0.07518211}
+      position: {x: -6.1874948, y: -0.0069608158, z: 2.9599257}
       rotation: {x: 0.7071068, y: 0.000000011238228, z: -0.7071067, w: 0.00000001123823}
       scale: {x: 0.148965, y: 0.148965, z: 0.280881}
     - name: Cone007
       parentName: Brazo Izq
-      position: {x: -0.15716237, y: -0.06312322, z: -0.03780879}
+      position: {x: -6.1874948, y: -2.485166, z: -1.488535}
       rotation: {x: -0.4545194, y: -0.54167527, z: 0.45451942, w: 0.54167527}
       scale: {x: 0.148965, y: 0.148965, z: 0.280881}
     - name: Cone008
       parentName: Brazo Izq
-      position: {x: -0.15716237, y: 0.06557633, z: -0.038919777}
+      position: {x: -6.1874948, y: 2.5817454, z: -1.5322747}
       rotation: {x: 0.4999999, y: -0.5, z: -0.4999999, w: 0.5000002}
       scale: {x: 0.148965, y: 0.148965, z: 0.280881}
     - name: Cabeza
       parentName: Gelem
-      position: {x: 0.0110624265, y: 0.07862179, z: 0.21712857}
+      position: {x: 0.4355286, y: 3.095346, z: 8.548369}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Cuerpo
       parentName: Gelem
-      position: {x: 0.0110624265, y: 0.09701784, z: -0.09560497}
+      position: {x: 0.4355286, y: 3.8196, z: -3.7639754}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1.048375, y: 1.048375, z: 1.048375}
     - name: Hombro Der
       parentName: Gelem
-      position: {x: 0.21341935, y: 0.09701784, z: 0.046964787}
+      position: {x: 8.402337, y: 3.8196, z: 1.8490074}
       rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071067}
       scale: {x: 1.58205, y: 0.996771, z: 1.312801}
     - name: Hombro Izq
       parentName: Gelem
-      position: {x: -0.19129452, y: 0.09701784, z: 0.046964787}
+      position: {x: -7.5312805, y: 3.8196, z: 1.8490074}
       rotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
       scale: {x: 1.58205, y: 0.996771, z: 1.312801}
     - name: Pierna Der
       parentName: Gelem
-      position: {x: 0.1122409, y: 0.09701784, z: -0.39914036}
+      position: {x: 4.4189334, y: 3.8196, z: -15.714188}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Pierna Izq
       parentName: Gelem
-      position: {x: -0.09011605, y: 0.09701784, z: -0.39914036}
+      position: {x: -3.547876, y: 3.8196, z: -15.714188}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
@@ -533,7 +522,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.254
+    globalScale: 10
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1

@@ -9,9 +9,11 @@ public class Gelem : MonoBehaviour
     GelemState currentState;
     Vector3 initialPosition;
     Quaternion initialRotation;
+    float elevatingSpeed = 5f;
     float movementSpeed = 12.5f;
     float turningSpeed = 45f;
     public TurningDirection turningDirection;
+    public Mikeas mikeas;
     Animator animator;
     private Ray ray;
     private RaycastHit hit;
@@ -65,6 +67,33 @@ public class Gelem : MonoBehaviour
             StartCoroutine("DoNothing");
         }
     }
+
+    public void ElevateMikeas()
+    {
+        if (CanMoveForward())
+        {
+            this.currentState = GelemState.ELEVATING_MIKEAS;
+            StartCoroutine("ReturnToIdle");
+        }
+        else
+        {
+            StartCoroutine("DoNothing");
+        }
+    }
+
+    public void DownMikeas()
+    {
+        if (CanMoveForward())
+        {
+            this.currentState = GelemState.DOWNING_MIKEAS;
+            StartCoroutine("ReturnToIdle");
+        }
+        else
+        {
+            StartCoroutine("DoNothing");
+        }
+    }
+
     public void Turn()
     {
         this.currentState = GelemState.TURNING;
@@ -83,7 +112,7 @@ public class Gelem : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         this.animator.SetTrigger("ReturnToIdle");
-        if (currentState == GelemState.FALLING)
+        if (currentState == GelemState.FALLING || currentState == GelemState.MIKEAS_BURNED)
         {
             ChangeState(GelemState.IDLE);
             LevelManager.Instance.ExecuteResetLevel();
@@ -95,16 +124,32 @@ public class Gelem : MonoBehaviour
         }
     }
 
-    IEnumerator DoNothing()
+    public IEnumerator DoNothing()
     {
         yield return new WaitForSeconds(2);
         LevelManager.Instance.ExecuteNextTick();
+    }
+
+    public void NoAction()
+    {
+        StartCoroutine("DoNothing");
     }
 
     void MovingForward()
     {
         this.transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
+
+    void ElevatingMikeas()
+    {
+        this.mikeas.transform.Translate(Vector3.up * elevatingSpeed * Time.deltaTime);
+    }
+
+    void DowningMikeas()
+    {
+        this.mikeas.transform.Translate(Vector3.down * elevatingSpeed * Time.deltaTime);
+    }
+
 
     void Turning()
     {
@@ -120,35 +165,30 @@ public class Gelem : MonoBehaviour
             MovingForward();
         }
 
+        if (this.currentState == GelemState.ELEVATING_MIKEAS)
+        {
+            ElevatingMikeas();
+        }
+        if (this.currentState == GelemState.DOWNING_MIKEAS)
+        {
+            DowningMikeas();
+        }
+
         if (this.currentState == GelemState.TURNING)
         {
             Turning();
         }
 
-        if (this.currentState == GelemState.IDLE && Input.GetKeyDown(KeyCode.W))
-        {
-            MoveForward();
-        }
-        if (this.currentState == GelemState.IDLE && Input.GetKeyDown(KeyCode.A))
-        {
-            this.turningDirection = TurningDirection.LEFT;
-            Turn();
-        }
-        if (this.currentState == GelemState.IDLE && Input.GetKeyDown(KeyCode.D))
-        {
-            this.turningDirection = TurningDirection.RIGHT;
-            Turn();
-        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             LevelManager.Instance.ExecuteNextTick();
         }
     }
 
-    void ChangeState(GelemState newState)
+    public void ChangeState(GelemState newState)
     {
+        Debug.Log("Change to " + newState + ": From " + this.currentState);
         this.currentState = newState;
-        Debug.Log("Change to " + newState);
     }
 
     void OnTriggerEnter(Collider trigger)
@@ -167,7 +207,10 @@ public class Gelem : MonoBehaviour
 public enum GelemState
 {
     IDLE,
+    ELEVATING_MIKEAS,
+    DOWNING_MIKEAS,
     FALLING,
+    MIKEAS_BURNED,
     MOVING,
     TURNING
 }
