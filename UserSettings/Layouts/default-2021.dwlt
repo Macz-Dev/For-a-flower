@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1904
     height: 991
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 73
+  controlID: 58966
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 85
+  controlID: 58930
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -191,8 +191,8 @@ MonoBehaviour:
     y: 479
     width: 910
     height: 462
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 118
+  controlID: 58836
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -270,14 +270,14 @@ MonoBehaviour:
     y: 481
     width: 626
     height: 460
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -333,8 +333,10 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  m_SerializedViewNames: []
-  m_SerializedViewValues: []
+  m_SerializedViewNames:
+  - UnityEditor.DeviceSimulation.SimulatorWindow
+  m_SerializedViewValues:
+  - D:\Unity Projects\For a flower\Library\PlayModeViewStates\10c37a265ab82eb439c390c500c32b41
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
@@ -393,7 +395,7 @@ MonoBehaviour:
   m_defaultScale: 0.3888889
   m_LastWindowPixelSize: {x: 909, y: 441}
   m_ClearInEditMode: 1
-  m_NoCameraWarning: 1
+  m_NoCameraWarning: 0
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
@@ -629,14 +631,14 @@ MonoBehaviour:
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 0
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -10.949005, y: 16.772943, z: -88.86914}
+    m_Target: {x: 792.5456, y: 569.46124, z: 170.1339}
     speed: 2
-    m_Value: {x: -10.949005, y: 16.772943, z: -88.86914}
+    m_Value: {x: 792.5456, y: 569.46124, z: 170.1339}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -665,17 +667,17 @@ MonoBehaviour:
       m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -683,17 +685,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.06630211, y: 0.83930993, z: -0.10511451, w: -0.52929187}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: -0.06614318, y: 0.8400878, z: -0.10521196, w: -0.5280228}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 64.36314
+    m_Target: 757.42285
     speed: 2
-    m_Value: 64.36314
+    m_Value: 757.42285
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1.0646999
     m_SpeedNormalized: 0.53
@@ -813,23 +815,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 94b0feff
-      m_LastClickedID: -85868
-      m_ExpandedIDs: c0b0feffc6b0feffd0b0fefff0b1fefff6b1feff00b2feff4c5cffff525cffff5c5cffffb4c8ffff54c9ffff5ec9ffff32fbffff7a6a0000
+      m_SelectedIDs: e078f9ff
+      m_LastClickedID: -427808
+      m_ExpandedIDs: 8ecbf3ff9a11f4ff5eadf5ff2cd1f5ff6ef1f5ff7805f7ff7c05f7ff8005f7ff8605f7ff4236f7ff4445f7ffb22ef8ff7003f9ffdc78f9ffde78f9ffe078f9ffe278f9ffa05dfaffa06affff32fbfffff4ffffff98690000206a0000466a0000526a00006c6a0000806a0000b66a0000c46a0000ce6a0000066b00005c6b0000706b0000a66b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: FireParticles
-        m_OriginalName: FireParticles
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -56404
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
       m_SearchString: 
@@ -1477,22 +1479,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/My project/Prefabs/LevelElements/Obstacles
+    - Assets/My project/UI/Fonts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/My project/Prefabs/LevelElements/Obstacles
+  - Assets/My project/UI/Fonts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity Projects\For a flower
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e27e0000
-    m_LastClickedID: 32482
-    m_ExpandedIDs: 00000000c27e0000c47e0000c67e0000c87e0000ca7e0000cc7e0000ce7e000000ca9a3b
+    scrollPos: {x: 0, y: 145}
+    m_SelectedIDs: 66d50000
+    m_LastClickedID: 54630
+    m_ExpandedIDs: 00000000527f0000547f0000567f0000587f00005a7f00005c7f00005e7f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1508,7 +1510,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 11}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -1520,7 +1522,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c27e0000c47e0000c67e0000c87e0000ca7e0000cc7e0000ce7e0000
+    m_ExpandedIDs: 00000000527f0000547f0000567f0000587f00005a7f00005c7f00005e7f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1545,10 +1547,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: e078f9ff5eadf5ff
+    m_LastClickedInstanceID: -427808
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 4ebc0000ce680000b6760000b2760000ba760000006c0000f66b0000146c00006c6c000012740000ee6b0000e675000054830000228500008a880000c8650100526b000006400100
+    m_ExpandedInstanceIDs: 4ebc0000ce680000b6760000b2760000ba760000006c0000f66b0000146c00006c6c000012740000ee6b0000e675000054830000228500008a880000c8650100526b00000640010000000000286c00009c6c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1641,7 +1643,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 252
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

@@ -29,12 +29,20 @@ public class Gelem : MonoBehaviour
     {
         this.currentState = GelemState.IDLE;
         LevelManager.Instance.ResetLevel += ResetInitialValues;
+        LevelManager.Instance.StopExecution += Stop;
     }
 
     void ResetInitialValues(object sender, EventArgs e)
     {
-        this.transform.position = initialPosition + Vector3.up * 5.0f;
+        this.transform.position = initialPosition;
         this.transform.rotation = this.initialRotation;
+    }
+
+    void Stop(object sender, EventArgs e)
+    {
+        StopAllCoroutines();
+        this.animator.SetTrigger("ReturnToIdle");
+        ChangeState(GelemState.IDLE);
     }
 
     bool CanMoveForward()
@@ -44,6 +52,10 @@ public class Gelem : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
             if (hit.collider.CompareTag("ExitPoint"))
+            {
+                return true;
+            }
+            else if (hit.collider.CompareTag("Gelem"))
             {
                 return true;
             }
@@ -111,10 +123,12 @@ public class Gelem : MonoBehaviour
     IEnumerator ReturnToIdle()
     {
         yield return new WaitForSeconds(2);
+        Debug.Log("Returning to idle");
         this.animator.SetTrigger("ReturnToIdle");
         if (currentState == GelemState.FALLING || currentState == GelemState.MIKEAS_BURNED)
         {
             ChangeState(GelemState.IDLE);
+            LevelManager.Instance.ExecuteStopExecution();
             LevelManager.Instance.ExecuteResetLevel();
         }
         else
@@ -178,16 +192,10 @@ public class Gelem : MonoBehaviour
         {
             Turning();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LevelManager.Instance.ExecuteNextTick();
-        }
     }
 
     public void ChangeState(GelemState newState)
     {
-        Debug.Log("Change to " + newState + ": From " + this.currentState);
         this.currentState = newState;
     }
 
@@ -200,8 +208,14 @@ public class Gelem : MonoBehaviour
         }
         else if (trigger.CompareTag("ExitPoint"))
         {
-            LevelManager.Instance.wasExitPointReached = true;
+            LevelManager.Instance.currentState = LevelState.COMPLETED;
         }
+    }
+
+    void OnDestroy()
+    {
+        LevelManager.Instance.ResetLevel -= ResetInitialValues;
+        LevelManager.Instance.StopExecution -= Stop;
     }
 }
 public enum GelemState

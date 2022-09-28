@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuPanel;
-    [SerializeField] private GameObject optionsPanel;
-    [SerializeField] private GameObject levelMenuPanel;
-
+    public static UIManager Instance;
     [SerializeField] private UIPanel[] panels;
     private UIPanel currentPanel;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        if (Instance != null)
+            Destroy(this.gameObject);
+        else
+            Instance = this;
+    }
 
     void Start()
     {

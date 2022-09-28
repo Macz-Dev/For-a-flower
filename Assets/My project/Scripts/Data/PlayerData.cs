@@ -17,5 +17,5 @@ public class PlayerData : MonoBehaviour
 public class LevelStats
 {
     public int usedPieces;
-    public int parchmentPiecesObtained;
+    public int collectedPieces;
 }

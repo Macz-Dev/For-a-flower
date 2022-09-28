@@ -27,10 +27,17 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start()
     {
         frameRectTransform = GetComponent<RectTransform>();
+        button.onClick.AddListener(() => SelectLevel());
         CleanPanelStates();
         SetDataLevel();
         SetState();
         PrepareRenderByState();
+    }
+
+    void SelectLevel()
+    {
+        LevelManager.Instance.currentLevel = this.level;
+        LevelManager.Instance.LoadLevel();
     }
 
     void SetDataLevel()

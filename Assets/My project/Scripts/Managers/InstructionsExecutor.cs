@@ -4,27 +4,36 @@ using UnityEngine;
 using System;
 public class InstructionsExecutor : MonoBehaviour
 {
-    public string[] instructions;
     private int indexOfInstructionToExecute;
     public Gelem gelem;
 
     void Start()
     {
-        this.instructions = new string[] { "DM", "MF", "NA", "EM", "MF", "TL", "MF", "TR", "MF", "DM", "EM" };
-        LevelManager.Instance.NextTick += Execute;
         LevelManager.Instance.ResetLevel += ResetInitialValues;
-
+        LevelManager.Instance.NextTick += Execute;
     }
-    void ResetInitialValues(object sender, EventArgs e)
+    public void ResetInitialValues()
+    {
+        this.indexOfInstructionToExecute = 0;
+    }
+
+    public void ResetInitialValues(object sender, EventArgs e)
     {
         this.indexOfInstructionToExecute = 0;
     }
 
     public void Execute(object sender, EventArgs e)
     {
-        if (HasInstructionsToExecute())
+        LevelManager.Instance.instructionsSelected.NoHighlighted();
+
+        if (!HasInstructionsToExecute())
         {
-            string instructionToExecute = this.instructions[this.indexOfInstructionToExecute];
+            LevelManager.Instance.ExecuteStopExecution();
+        }
+        else if (LevelManager.Instance.currentState == LevelState.EXECUTING_INSTRUCTIONS)
+        {
+            string instructionToExecute = LevelManager.Instance.instructionsSelected.instructionsSelected[this.indexOfInstructionToExecute].id;
+            LevelManager.Instance.instructionsSelected.instructionsSelected[this.indexOfInstructionToExecute].ExecutingInstruction();
             switch (instructionToExecute)
             {
                 case "MF": // Move forward
@@ -58,6 +67,6 @@ public class InstructionsExecutor : MonoBehaviour
 
     public bool HasInstructionsToExecute()
     {
-        return this.instructions.Length > this.indexOfInstructionToExecute;
+        return LevelManager.Instance.instructionsSelected.instructionsSelected.Count > this.indexOfInstructionToExecute;
     }
 }

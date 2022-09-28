@@ -110,11 +110,11 @@ public class FireTrap : MonoBehaviour
     void SetFireParticleSystems()
     {
         this.fireParticleSystems = this.fire.GetComponentsInChildren<ParticleSystem>();
-        foreach (var fireParticleSystem in this.fireParticleSystems)
-        {
-            var mainFireParticleSystem = fireParticleSystem.main;
-            mainFireParticleSystem.simulationSpace = ParticleSystemSimulationSpace.World;
-        }
+        // foreach (var fireParticleSystem in this.fireParticleSystems)
+        // {
+        //     var mainFireParticleSystem = fireParticleSystem.main;
+        //     mainFireParticleSystem.simulationSpace = ParticleSystemSimulationSpace.World;
+        // }
     }
 
     void ToggleFireState()
@@ -149,6 +149,10 @@ public class FireTrap : MonoBehaviour
         return this.fire.gameObject.activeInHierarchy;
     }
 
+    void OnDestroy()
+    {
+        LevelManager.Instance.NextTick -= NextTick;
+    }
 }
 
 public enum FireTrapType

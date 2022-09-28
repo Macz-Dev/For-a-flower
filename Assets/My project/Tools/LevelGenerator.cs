@@ -14,6 +14,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject[] blockPrefabs;
     [SerializeField] private Material floorMaterial;
     [SerializeField] private GameObject gelemPrefab;
+    [SerializeField] private GameObject parchmentPrefab;
     [SerializeField] private GameObject fireTrapPrefab;
     [SerializeField] private GameObject exitPointPrefab;
     [SerializeField] private GameObject holePrefab;
@@ -24,14 +25,24 @@ public class LevelGenerator : MonoBehaviour
     private Quaternion elementDirection;
 
     // Element groups
-    string[] elementsWithFloor = { "floor", "wall", "iWall", "gelem", "fire", "exit" };
+    string[] elementsWithFloor = { "floor", "wall", "iWall", "gelem", "parchment", "fire", "exit" };
     string[] directionModifiers = { "dtf", "dtb", "dtr", "dtl" };
     string[] extraWallsModifiers = { "ewf", "ewb", "ewr", "ewl" };
 
-    void Start()
+    public void GenerateLevel(string level)
     {
-        levelTemplate = GameData.Levels["3"].sceneryTemplate;
+        CleanPreviousLevels();
+        levelTemplate = GameData.Levels[level].sceneryTemplate;
         Generate();
+    }
+
+    void CleanPreviousLevels()
+    {
+        Transform[] childrenToDestroy = this.levelTransform.GetComponentsInChildren<Transform>();
+        for (int index = 1; index < childrenToDestroy.Length; index++)
+        {
+            Destroy(childrenToDestroy[index].gameObject);
+        }
     }
 
     // Function that read the scenery template and call the generateElement function
@@ -94,6 +105,12 @@ public class LevelGenerator : MonoBehaviour
         {
             floor.name = "Spawn";
             SpawnGelem(levelTransform);
+            return;
+        }
+        else if (this.rawElementType == "parchment")
+        {
+            floor.name = "Collectable";
+            GenerateParchment(levelTransform);
             return;
         }
         else if (this.rawElementType == "fire")
@@ -170,6 +187,19 @@ public class LevelGenerator : MonoBehaviour
         GameObject gelem = Instantiate(this.gelemPrefab, onPosition, this.elementDirection, parent);
         // Assigning gelem
         LevelManager.Instance.instructionsExecutor.gelem = gelem.GetComponent<Gelem>();
+    }
+
+    // Function to generate parchment
+    void GenerateParchment(Transform parent)
+    {
+        // Adding offset
+        Vector3 onPosition = this.elementPosition * this.blockDistanceOffset;
+        // Adjusting y position
+        onPosition.y = 17.5f;
+        // Generate parchment
+        GameObject parchment = Instantiate(this.parchmentPrefab, onPosition, this.elementDirection, parent);
+        // Assigning gelem
+        // LevelManager.Instance.instructionsExecutor.gelem = gelem.GetComponent<Gelem>();
     }
 
     // Function to generate FireTrap
@@ -269,7 +299,7 @@ public class LevelGenerator : MonoBehaviour
         }
         else if (this.elementType.Contains("ewl"))
         {
-            this.elementPosition.x += 1;
+            this.elementPosition.x -= 1;
         }
     }
 

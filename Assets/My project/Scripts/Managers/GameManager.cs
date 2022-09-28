@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     public GameState currentState;
@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public event EventHandler PauseEvent;
     public event EventHandler PlayEvent;
-    public event EventHandler GameOverEvent;
+    public event EventHandler GoLevelMenu;
 
-    public event EventHandler NextTick;
+    public TextMeshProUGUI parchmentInfo;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ChangeState(GameState.PLAYING);
+        this.parchmentInfo.text = PlayerData.AvailableParchmentPieces() + "/" + PlayerData.parchmentsQuantity;
     }
 
     public void ChangeState(GameState newState)
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case GameState.MAIN_MENU:
+                break;
+            case GameState.LEVEL_MENU:
+                GoLevelMenu?.Invoke(this, EventArgs.Empty);
                 break;
             case GameState.PLAYING:
                 Time.timeScale = 1f;
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
 public enum GameState
 {
     MAIN_MENU,
+    LEVEL_MENU,
     PLAYING,
     PAUSE,
 }

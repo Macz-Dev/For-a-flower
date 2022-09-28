@@ -11,11 +11,11 @@ public class GameData : MonoBehaviour
             10, // Parchment Pieces Required
             new string[] { "MF", "TL", "TR" }, // Usable Instructions
             new string[,]{ // Scenery Template
-            { "wall", "wall", "exit-ewf", "wall", "wall", "wall", "wall" },
+            { "wall", "exit-ewf", "wall", "wall", "wall", "wall", "wall" },
             { "wall", "floor", "floor", "floor", "floor", "floor", "wall" },
-            { "wall", "floor", "floor", "floor", "floor", "floor", "wall" },
+            { "wall", "floor", "iWall", "floor", "floor", "floor", "wall" },
+            { "wall", "floor", "iWall", "parchment", "floor", "floor", "wall" },
             { "wall", "floor", "floor", "gelem", "floor", "floor", "wall" },
-            { "wall", "floor", "floor", "floor", "floor", "floor", "wall" },
             { "wall", "floor", "floor", "floor", "floor", "floor", "wall" },
             { "wall", "wall", "wall", "wall", "wall", "wall", "wall" }}),
         ["2"] = new LevelData(
@@ -32,13 +32,13 @@ public class GameData : MonoBehaviour
             { "wall", "wall", "wall", "wall", "wall", "wall", "wall" }}),
         ["3"] = new LevelData(
             11, // Optimums Pieces
-            30, // Parchment Pieces Required
+            10, // Parchment Pieces Required
             new string[] { "MF", "TL", "TR", "NA", "EM", "DM" }, // Usable Instructions
             new string[,]{ // Scenery Template
             { "wall", "wall", "wall", "wall", "exit-ewf", "wall", "wall" },
             { "wall", "iWall", "floor", "floor", "floor", "floor", "wall" },
             { "wall", "iWall", "floor", "floor", "hole", "iWall", "wall" },
-            { "wall", "iWall", "fire-l", "floor", "fire-dtl-l", "iWall", "wall" },
+            { "wall", "iWall", "floor", "floor", "fire-dtl-l", "iWall", "wall" },
             { "wall", "iWall", "fire-dtr-u-3", "floor", "hole", "iWall", "wall" },
             { "wall", "iWall", "iWall", "gelem", "iWall", "iWall", "wall" },
             { "wall", "wall", "wall", "wall", "wall", "wall", "wall" }}),

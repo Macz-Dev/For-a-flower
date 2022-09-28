@@ -232,6 +232,7 @@ MonoBehaviour:
   level: 1
   optimumsPieces: 5
   parchmentPiecesRequired: 10
+  isPlayable: 0
   currentState: 0
   button: {fileID: 2435177282553349998}
   lockedPanel: {fileID: 2435177282664822841}
