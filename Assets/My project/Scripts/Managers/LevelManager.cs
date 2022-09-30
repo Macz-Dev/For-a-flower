@@ -57,7 +57,6 @@ public class LevelManager : MonoBehaviour
         }
         if (this.currentState == LevelState.COMPLETED)
         {
-            Debug.Log("Level Complete execution");
             ExecuteLevelCompleted();
         }
     }

@@ -7,7 +7,8 @@ using UnityEngine.EventSystems;
 public class ExitLevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Button button;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         this.button.onClick.AddListener(() => ExitLevel());

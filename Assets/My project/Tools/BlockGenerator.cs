@@ -18,7 +18,6 @@ public class BlockGenerator : MonoBehaviour
     public int currentMatrixSize;
     public Stack<GameObject> instantiatedBlocks;
 
-    // Start is called before the first frame update
     void Start()
     {
         this.instantiatedBlocks = new Stack<GameObject>();

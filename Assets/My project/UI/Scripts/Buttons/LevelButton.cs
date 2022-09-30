@@ -70,13 +70,21 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (!isPlayable) return;
         bool hasEnoughPieces = PlayerData.AvailableParchmentPieces(this.level) >= this.parchmentPiecesRequired;
+        Debug.Log(PlayerData.AvailableParchmentPieces(this.level));
         string previousLevel = (Int32.Parse(this.level) - 1).ToString();
         bool hasCompletedPreviousLevel = PlayerData.HasCompleteTheLevel(previousLevel);
+        Debug.Log(hasCompletedPreviousLevel);
         if (PlayerData.levelsStats.ContainsKey(level) && hasEnoughPieces)
         {
             this.usedPieces = PlayerData.levelsStats[level].usedPieces;
             this.collectedPieces = PlayerData.levelsStats[level].collectedPieces;
             this.currentState = State.COMPLETED;
+        }
+        else if (PlayerData.levelsStats.ContainsKey(level) && !hasEnoughPieces)
+        {
+            this.usedPieces = PlayerData.levelsStats[level].usedPieces;
+            this.collectedPieces = PlayerData.levelsStats[level].collectedPieces;
+            this.currentState = State.COMPLETED_LOCKED;
         }
         else if (hasEnoughPieces && (hasCompletedPreviousLevel || this.level == "1"))
         {
@@ -109,6 +117,13 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 button.interactable = true;
                 completedPanel.SetActive(true);
                 break;
+            case State.COMPLETED_LOCKED:
+                resultPieces = collectedPieces - usedPieces;
+                resultText.text = (resultPieces >= 0 ? "+" : "") + resultPieces;
+                resultText.text = "-" + usedPieces + "\n" + "+" + collectedPieces;
+                button.interactable = false;
+                completedPanel.SetActive(true);
+                break;
             default:
                 break;
         }
@@ -122,7 +137,7 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (currentState == State.LOCKED) return;
+        if (currentState == State.LOCKED || currentState == State.COMPLETED_LOCKED) return;
         if (currentState == State.UNLOCKED)
         {
             levelNumberText.fontSize = 95;
@@ -138,7 +153,7 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (currentState == State.LOCKED) return;
+        if (currentState == State.LOCKED || currentState == State.COMPLETED_LOCKED) return;
         if (currentState == State.UNLOCKED)
         {
             levelNumberText.fontSize = 90;
@@ -156,7 +171,8 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         LOCKED,
         UNLOCKED,
-        COMPLETED
+        COMPLETED,
+        COMPLETED_LOCKED
     }
 }
 

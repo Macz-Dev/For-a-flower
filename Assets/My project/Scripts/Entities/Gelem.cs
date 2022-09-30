@@ -26,6 +26,7 @@ public class Gelem : MonoBehaviour
         this.initialPosition = this.transform.position;
         this.initialRotation = this.transform.rotation;
     }
+
     void Start()
     {
         this.currentState = GelemState.IDLE;

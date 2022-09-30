@@ -25,7 +25,6 @@ public class InstructionButton : MonoBehaviour
 
     void SelectInstruction()
     {
-        // LevelManager.Instance.instructionsExecutor.instructions.Add(id);
         UIManager.Instance.audioSource.Stop();
         UIManager.Instance.audioSource.Play();
         LevelManager.Instance.instructionsSelected.AddInstructionSelected(this.id, this.instructionSymbolSprite);

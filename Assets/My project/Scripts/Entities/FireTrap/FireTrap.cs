@@ -18,8 +18,8 @@ public class FireTrap : MonoBehaviour
     void Awake()
     {
         GetIndicators();
-
     }
+
     void Start()
     {
         SetFire();
@@ -33,12 +33,10 @@ public class FireTrap : MonoBehaviour
         Initialize();
     }
 
-
     void ResetInitialValues(object sender, EventArgs e)
     {
         SetInitialValues();
     }
-
 
     public void Initialize()
     {
@@ -124,11 +122,6 @@ public class FireTrap : MonoBehaviour
     void SetFireParticleSystems()
     {
         this.fireParticleSystems = this.fire.GetComponentsInChildren<ParticleSystem>();
-        // foreach (var fireParticleSystem in this.fireParticleSystems)
-        // {
-        //     var mainFireParticleSystem = fireParticleSystem.main;
-        //     mainFireParticleSystem.simulationSpace = ParticleSystemSimulationSpace.World;
-        // }
     }
 
     void ToggleFireState()
