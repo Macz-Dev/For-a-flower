@@ -9,6 +9,7 @@ TagManager:
   - ExitPoint
   - Fire
   - Gelem
+  - Parchment
   layers:
   - Default
   - TransparentFX

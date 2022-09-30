@@ -19,6 +19,8 @@ public class PlayInstructionsButton : MonoBehaviour
 
     void OnPress()
     {
+        UIManager.Instance.audioSource.Stop();
+        UIManager.Instance.audioSource.Play();
         if (LevelManager.Instance.currentState == LevelState.SELECTING_INSTRUCTIONS)
         {
             Play();

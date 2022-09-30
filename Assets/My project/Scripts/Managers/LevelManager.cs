@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,9 +19,14 @@ public class LevelManager : MonoBehaviour
     public event EventHandler ResetLevel;
     public event EventHandler StopExecution;
 
+    public event EventHandler NoAvailablePieces;
+    public event EventHandler AvailablePieces;
     public event EventHandler LevelCompleted;
 
+    public TextMeshProUGUI usedPiecesTMP;
+    public TextMeshProUGUI collectedPiecesTMP;
     public int collectedPieces;
+    public int availablePieces;
 
     private void Awake()
     {
@@ -39,6 +45,7 @@ public class LevelManager : MonoBehaviour
     public void ExecuteResetLevel()
     {
         this.collectedPieces = 0;
+        this.collectedPiecesTMP.gameObject.SetActive(false);
         ResetLevel?.Invoke(this, EventArgs.Empty);
     }
 
@@ -50,6 +57,7 @@ public class LevelManager : MonoBehaviour
         }
         if (this.currentState == LevelState.COMPLETED)
         {
+            Debug.Log("Level Complete execution");
             ExecuteLevelCompleted();
         }
     }
@@ -78,12 +86,36 @@ public class LevelManager : MonoBehaviour
         this.levelGenerator.GenerateLevel(this.currentLevel);
         this.instructionsSelector.SetLevelConfiguration();
         InitializeLevel();
+        this.collectedPiecesTMP.gameObject.SetActive(false);
+        this.availablePieces = PlayerData.AvailableParchmentPieces(this.currentLevel);
+        UpdateUsedPiecesTMP();
         UIManager.Instance.SetCurrentPanel("Game");
     }
 
     public void InitializeLevel()
     {
         this.currentState = LevelState.SELECTING_INSTRUCTIONS;
+    }
+
+    public void UpdateUsedPiecesTMP()
+    {
+        int usedPieces = this.instructionsSelected.instructionsSelected.Count;
+        if (usedPieces >= this.availablePieces)
+        {
+            NoAvailablePieces?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            AvailablePieces?.Invoke(this, EventArgs.Empty);
+        }
+        this.usedPiecesTMP.text = usedPieces + "/" + this.availablePieces;
+    }
+
+    public void PiecesCollected(int quantity)
+    {
+        this.collectedPieces += quantity;
+        this.collectedPiecesTMP.gameObject.SetActive(true);
+        this.collectedPiecesTMP.text = "+" + this.collectedPieces + " collected";
     }
 }
 

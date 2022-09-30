@@ -42,12 +42,15 @@ public class MainMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!isEnabled) return;
+        UIManager.Instance.audioSource.Stop();
+        UIManager.Instance.audioSource.Play();
         buttonText.fontSize = originalTextSize + 10;
         decorationBackgroundImage.SetActive(true);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!isEnabled) return;
+        UIManager.Instance.audioSource.Stop();
         buttonText.fontSize = originalTextSize;
         decorationBackgroundImage.SetActive(false);
     }

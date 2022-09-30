@@ -27,7 +27,10 @@ public class InstructionSelectedButton : MonoBehaviour
 
     public void RemoveInstruction()
     {
+        UIManager.Instance.audioSource.Stop();
+        UIManager.Instance.audioSource.Play();
         LevelManager.Instance.instructionsSelected.instructionsSelected.Remove(this);
+        LevelManager.Instance.UpdateUsedPiecesTMP();
         Destroy(this.gameObject);
     }
 

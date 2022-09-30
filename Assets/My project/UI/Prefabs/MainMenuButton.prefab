@@ -92,13 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84253aa348d4d264d939f892a6fa5831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  buttonText: {fileID: 0}
   disabledTextColor: {r: 0.8078432, g: 0.7568628, b: 0.65882355, a: 1}
   decorationBackgroundImage: {fileID: 6669924434622892733}
-  rectTransformButton: {fileID: 802557017979678051}
-  rectTransformButtonText: {fileID: 802557019232514649}
-  rectTransformDecorationBackgroundImage: {fileID: 2246013776362869677}
 --- !u!114 &3415809801450092505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6ef4e4f8bfe09d43bc36bd052caefbd, type: 3}
+  m_Sprite: {fileID: 110279589, guid: f44070cb5ed3995499d471b2d703fbdc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

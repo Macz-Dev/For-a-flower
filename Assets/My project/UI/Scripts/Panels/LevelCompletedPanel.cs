@@ -9,16 +9,14 @@ public class LevelCompletedPanel : MonoBehaviour
     public TextMeshProUGUI savedCollectedPiecesTMP;
     public TextMeshProUGUI newUsedPiecesTMP;
     public TextMeshProUGUI newCollectedPiecesTMP;
-    // Start is called before the first frame update
-    void Start()
-    {
-        LevelManager.Instance.LevelCompleted += LevelCompleted;
-    }
 
-    void LevelCompleted(object sender, EventArgs e)
+    public AudioSource audioSource;
+    // Start is called before the first frame update
+    void OnEnable()
     {
         SetDataOnUI();
-        this.gameObject.SetActive(true);
+        audioSource.Stop();
+        audioSource.Play();
     }
 
     void SetDataOnUI()
@@ -33,11 +31,5 @@ public class LevelCompletedPanel : MonoBehaviour
         // New Data
         this.newUsedPiecesTMP.text = LevelManager.Instance.instructionsSelected.instructionsSelected.Count.ToString();
         this.newCollectedPiecesTMP.text = LevelManager.Instance.collectedPieces.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

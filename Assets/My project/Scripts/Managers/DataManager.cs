@@ -6,12 +6,20 @@ using Newtonsoft.Json;
 
 public class DataManager : MonoBehaviour
 {
+    public static DataManager Instance;
     public string filePath;
     private StreamReader sreader;
     private StreamWriter swriter;
     private string fileContent;
+
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
+        if (Instance != null)
+            Destroy(this.gameObject);
+        else
+            Instance = this;
+
         // Has Saved Data
         if (HasSavedData())
         {
@@ -21,7 +29,7 @@ public class DataManager : MonoBehaviour
             PlayerDataJSON toLoadData = new PlayerDataJSON();
             toLoadData = JsonUtility.FromJson<PlayerDataJSON>(fileContent);
             PlayerData.levelsStats = JsonConvert.DeserializeObject<Dictionary<string, LevelStats>>(toLoadData.levelsStats);
-            PlayerData.parchmentsExpended = toLoadData.parchmentsExpended;
+            PlayerData.usedParchments = toLoadData.usedParchments;
             PlayerData.parchmentsQuantity = toLoadData.parchmentsQuantity;
         }
         else
@@ -34,8 +42,21 @@ public class DataManager : MonoBehaviour
     void InitializePlayerData()
     {
         PlayerData.levelsStats = new Dictionary<string, LevelStats>();
-        PlayerData.parchmentsExpended = 0;
-        PlayerData.parchmentsQuantity = 20;
+        PlayerData.usedParchments = 0;
+        PlayerData.parchmentsQuantity = 22;
+    }
+
+    public void UpdateData()
+    {
+        int newParchmentsQuantity = 22;
+        int newParchmentsExpended = 0;
+        foreach (var level in PlayerData.levelsStats)
+        {
+            newParchmentsExpended += level.Value.usedPieces;
+            newParchmentsQuantity += level.Value.collectedPieces;
+        }
+        PlayerData.usedParchments = newParchmentsExpended;
+        PlayerData.parchmentsQuantity = newParchmentsQuantity;
     }
 
     public void SaveData()
@@ -45,7 +66,7 @@ public class DataManager : MonoBehaviour
         swriter = new StreamWriter(Application.persistentDataPath + "/" + filePath, false);
         PlayerDataJSON toSaveData = new PlayerDataJSON();
         toSaveData.levelsStats = JsonConvert.SerializeObject(PlayerData.levelsStats); ;
-        toSaveData.parchmentsExpended = PlayerData.parchmentsExpended;
+        toSaveData.usedParchments = PlayerData.usedParchments;
         toSaveData.parchmentsQuantity = PlayerData.parchmentsQuantity;
         fileContent = JsonUtility.ToJson(toSaveData);
         Debug.Log(fileContent);
@@ -61,7 +82,7 @@ public class DataManager : MonoBehaviour
     class PlayerDataJSON
     {
         public string levelsStats;
-        public int parchmentsExpended;
+        public int usedParchments;
         public int parchmentsQuantity;
     }
 }

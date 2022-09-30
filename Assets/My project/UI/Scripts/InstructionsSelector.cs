@@ -41,7 +41,6 @@ public class InstructionsSelector : MonoBehaviour
         this.usableInstructions = GameData.Levels[LevelManager.Instance.currentLevel].usableInstructions;
         foreach (var instructionButton in instructionButtons)
         {
-            Debug.Log(instructionButton.id);
             if (Array.Exists(this.usableInstructions, x => x == instructionButton.id))
             {
                 instructionButton.gameObject.SetActive(true);
@@ -55,6 +54,8 @@ public class InstructionsSelector : MonoBehaviour
 
     void ShowNextInstructionView()
     {
+        UIManager.Instance.audioSource.Stop();
+        UIManager.Instance.audioSource.Play();
         this.instructionsViewScroll += 1;
         float newXPosition = -(this.instructionsViewScroll * this.viewPositionOffset);
         this.instructionsView.anchoredPosition = new Vector2(newXPosition, this.instructionsView.anchoredPosition.y);
@@ -63,6 +64,8 @@ public class InstructionsSelector : MonoBehaviour
 
     void ShowPreviousInstructionView()
     {
+        UIManager.Instance.audioSource.Stop();
+        UIManager.Instance.audioSource.Play();
         this.instructionsViewScroll -= 1;
         float newXPosition = (this.instructionsViewScroll * this.viewPositionOffset);
         this.instructionsView.anchoredPosition = new Vector2(newXPosition, this.instructionsView.anchoredPosition.y);

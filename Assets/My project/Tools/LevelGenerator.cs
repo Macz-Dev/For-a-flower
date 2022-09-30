@@ -31,12 +31,11 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateLevel(string level)
     {
-        CleanPreviousLevels();
         levelTemplate = GameData.Levels[level].sceneryTemplate;
         Generate();
     }
 
-    void CleanPreviousLevels()
+    public void CleanPreviousLevels()
     {
         Transform[] childrenToDestroy = this.levelTransform.GetComponentsInChildren<Transform>();
         for (int index = 1; index < childrenToDestroy.Length; index++)
@@ -110,7 +109,7 @@ public class LevelGenerator : MonoBehaviour
         else if (this.rawElementType == "parchment")
         {
             floor.name = "Collectable";
-            GenerateParchment(levelTransform);
+            GenerateParchment(floor.transform);
             return;
         }
         else if (this.rawElementType == "fire")
@@ -198,8 +197,8 @@ public class LevelGenerator : MonoBehaviour
         onPosition.y = 17.5f;
         // Generate parchment
         GameObject parchment = Instantiate(this.parchmentPrefab, onPosition, this.elementDirection, parent);
-        // Assigning gelem
-        // LevelManager.Instance.instructionsExecutor.gelem = gelem.GetComponent<Gelem>();
+        // Assigning quantityPieces
+        parchment.GetComponent<Parchment>().quantityPieces = Int32.Parse(this.elementModifier);
     }
 
     // Function to generate FireTrap

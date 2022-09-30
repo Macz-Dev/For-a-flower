@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public string level;
-    public int optimumsPieces;
+    public int collectedPieces;
     public int parchmentPiecesRequired;
     private int usedPieces;
     public bool isPlayable;
@@ -28,6 +29,18 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         frameRectTransform = GetComponent<RectTransform>();
         button.onClick.AddListener(() => SelectLevel());
+        UpdateData();
+    }
+
+    void OnEnable()
+    {
+        UpdateData();
+    }
+
+    void UpdateData()
+    {
+        this.usedPieces = 0;
+        this.collectedPieces = 0;
         CleanPanelStates();
         SetDataLevel();
         SetState();
@@ -45,7 +58,6 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         this.isPlayable = GameData.Levels.ContainsKey(level) ? true : false;
         if (isPlayable)
         {
-            this.optimumsPieces = GameData.Levels[level].optimumsPieces;
             this.parchmentPiecesRequired = GameData.Levels[level].parchmentPiecesRequired;
         }
         else
@@ -57,11 +69,16 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void SetState()
     {
         if (!isPlayable) return;
-        if (PlayerData.levelsStats.ContainsKey(level))
+        bool hasEnoughPieces = PlayerData.AvailableParchmentPieces(this.level) >= this.parchmentPiecesRequired;
+        string previousLevel = (Int32.Parse(this.level) - 1).ToString();
+        bool hasCompletedPreviousLevel = PlayerData.HasCompleteTheLevel(previousLevel);
+        if (PlayerData.levelsStats.ContainsKey(level) && hasEnoughPieces)
         {
+            this.usedPieces = PlayerData.levelsStats[level].usedPieces;
+            this.collectedPieces = PlayerData.levelsStats[level].collectedPieces;
             this.currentState = State.COMPLETED;
         }
-        else if (PlayerData.parchmentsQuantity >= this.parchmentPiecesRequired)
+        else if (hasEnoughPieces && (hasCompletedPreviousLevel || this.level == "1"))
         {
             this.currentState = State.UNLOCKED;
         }
@@ -86,7 +103,9 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
                 unlockedPanel.SetActive(true);
                 break;
             case State.COMPLETED:
-                resultText.text = usedPieces + "/" + optimumsPieces;
+                int resultPieces = collectedPieces - usedPieces;
+                resultText.text = (resultPieces >= 0 ? "+" : "") + resultPieces;
+                resultText.text = "-" + usedPieces + "\n" + "+" + collectedPieces;
                 button.interactable = true;
                 completedPanel.SetActive(true);
                 break;
@@ -114,6 +133,8 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             resultText.fontSize = 45;
         }
         frameRectTransform.sizeDelta = new Vector2(210f, 140f);
+        UIManager.Instance.audioSource.Stop();
+        UIManager.Instance.audioSource.Play();
     }
     public void OnPointerExit(PointerEventData eventData)
     {
@@ -128,7 +149,7 @@ public class LevelButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             resultText.fontSize = 40;
         }
         frameRectTransform.sizeDelta = new Vector2(200f, 130f);
-        // buttonText.fontSize = originalTextSize;
+        UIManager.Instance.audioSource.Stop();
     }
 
     public enum State

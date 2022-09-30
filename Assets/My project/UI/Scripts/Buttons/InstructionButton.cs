@@ -19,12 +19,17 @@ public class InstructionButton : MonoBehaviour
         this.instructionSymbol.sprite = this.instructionSymbolSprite;
         LevelManager.Instance.StartExecution += DisableButton;
         LevelManager.Instance.StopExecution += EnableButton;
+        LevelManager.Instance.NoAvailablePieces += DisableButton;
+        LevelManager.Instance.AvailablePieces += EnableButton;
     }
 
     void SelectInstruction()
     {
         // LevelManager.Instance.instructionsExecutor.instructions.Add(id);
+        UIManager.Instance.audioSource.Stop();
+        UIManager.Instance.audioSource.Play();
         LevelManager.Instance.instructionsSelected.AddInstructionSelected(this.id, this.instructionSymbolSprite);
+        LevelManager.Instance.UpdateUsedPiecesTMP();
     }
 
     void DisableButton(object sender, EventArgs e)

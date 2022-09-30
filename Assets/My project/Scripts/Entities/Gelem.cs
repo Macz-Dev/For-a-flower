@@ -15,6 +15,7 @@ public class Gelem : MonoBehaviour
     public TurningDirection turningDirection;
     public Mikeas mikeas;
     Animator animator;
+    public AudioSource sounds;
     private Ray ray;
     private RaycastHit hit;
     [SerializeField] private float rayDistance;
@@ -41,7 +42,10 @@ public class Gelem : MonoBehaviour
     void Stop(object sender, EventArgs e)
     {
         StopAllCoroutines();
-        this.animator.SetTrigger("ReturnToIdle");
+        if (!this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            this.animator.SetTrigger("ReturnToIdle");
+        }
         ChangeState(GelemState.IDLE);
     }
 
@@ -59,6 +63,10 @@ public class Gelem : MonoBehaviour
             {
                 return true;
             }
+            else if (hit.collider.CompareTag("Parchment"))
+            {
+                return true;
+            }
             return false;
         }
         else
@@ -66,12 +74,20 @@ public class Gelem : MonoBehaviour
             return true;
         }
     }
+
+    bool CanElevateMikeas()
+    {
+        return this.mikeas.transform.position != this.mikeas.initialPosition;
+    }
+
     public void MoveForward()
     {
         if (CanMoveForward())
         {
             this.currentState = GelemState.MOVING;
             this.animator.SetTrigger("Walk");
+            this.sounds.time = 0f;
+            this.sounds.Play();
             StartCoroutine("ReturnToIdle");
         }
         else
@@ -82,7 +98,7 @@ public class Gelem : MonoBehaviour
 
     public void ElevateMikeas()
     {
-        if (CanMoveForward())
+        if (CanElevateMikeas())
         {
             this.currentState = GelemState.ELEVATING_MIKEAS;
             StartCoroutine("ReturnToIdle");
@@ -95,7 +111,7 @@ public class Gelem : MonoBehaviour
 
     public void DownMikeas()
     {
-        if (CanMoveForward())
+        if (!CanElevateMikeas())
         {
             this.currentState = GelemState.DOWNING_MIKEAS;
             StartCoroutine("ReturnToIdle");
@@ -109,6 +125,8 @@ public class Gelem : MonoBehaviour
     public void Turn()
     {
         this.currentState = GelemState.TURNING;
+        this.sounds.time = 0f;
+        this.sounds.Play();
         if (this.turningDirection == TurningDirection.RIGHT)
         {
             this.animator.SetTrigger("TurnRight");
@@ -123,8 +141,11 @@ public class Gelem : MonoBehaviour
     IEnumerator ReturnToIdle()
     {
         yield return new WaitForSeconds(2);
-        Debug.Log("Returning to idle");
-        this.animator.SetTrigger("ReturnToIdle");
+        this.sounds.Pause();
+        if (currentState == GelemState.MOVING || currentState == GelemState.TURNING)
+        {
+            this.animator.SetTrigger("ReturnToIdle");
+        }
         if (currentState == GelemState.FALLING || currentState == GelemState.MIKEAS_BURNED)
         {
             ChangeState(GelemState.IDLE);
@@ -209,6 +230,14 @@ public class Gelem : MonoBehaviour
         else if (trigger.CompareTag("ExitPoint"))
         {
             LevelManager.Instance.currentState = LevelState.COMPLETED;
+        }
+        else if (trigger.CompareTag("Parchment"))
+        {
+            Parchment parchment = trigger.GetComponent<Parchment>();
+            LevelManager.Instance.PiecesCollected(parchment.quantityPieces);
+            SoundsManager.Instance.audioSourceParchment.Stop();
+            SoundsManager.Instance.audioSourceParchment.Play();
+            parchment.gameObject.SetActive(false);
         }
     }
 

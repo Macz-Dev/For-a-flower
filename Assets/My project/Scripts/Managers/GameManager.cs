@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ChangeState(GameState.PLAYING);
-        this.parchmentInfo.text = PlayerData.AvailableParchmentPieces() + "/" + PlayerData.parchmentsQuantity;
+        UpdateParchmentData();
     }
 
     public void ChangeState(GameState newState)
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.LEVEL_MENU:
                 GoLevelMenu?.Invoke(this, EventArgs.Empty);
+                UpdateParchmentData();
                 break;
             case GameState.PLAYING:
                 Time.timeScale = 1f;
@@ -45,6 +46,20 @@ public class GameManager : MonoBehaviour
                 PauseEvent?.Invoke(this, EventArgs.Empty);
                 break;
         }
+    }
+
+    void UpdateParchmentData()
+    {
+        this.parchmentInfo.text = PlayerData.AvailableParchmentPieces() + "/" + PlayerData.parchmentsQuantity;
+    }
+
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
 

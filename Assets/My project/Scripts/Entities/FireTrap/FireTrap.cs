@@ -13,6 +13,7 @@ public class FireTrap : MonoBehaviour
     private FireFireTrap fire;
     private ParticleSystem[] fireParticleSystems;
     public IndicatorFireTrap[] indicators;
+    public AudioSource sound;
 
     void Awake()
     {
@@ -22,9 +23,22 @@ public class FireTrap : MonoBehaviour
     void Start()
     {
         SetFire();
-        Initialize();
+        SetInitialValues();
+        LevelManager.Instance.ResetLevel += ResetInitialValues;
         LevelManager.Instance.NextTick += NextTick;
     }
+
+    void SetInitialValues()
+    {
+        Initialize();
+    }
+
+
+    void ResetInitialValues(object sender, EventArgs e)
+    {
+        SetInitialValues();
+    }
+
 
     public void Initialize()
     {
@@ -126,11 +140,13 @@ public class FireTrap : MonoBehaviour
     void EnableFire()
     {
         this.fire.Enable();
+        sound.Play();
     }
 
     void DisableFire()
     {
         this.fire.Disable();
+        sound.Pause();
     }
 
     //Validations
@@ -152,6 +168,7 @@ public class FireTrap : MonoBehaviour
     void OnDestroy()
     {
         LevelManager.Instance.NextTick -= NextTick;
+        LevelManager.Instance.ResetLevel -= ResetInitialValues;
     }
 }
 
